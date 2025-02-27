@@ -1,5 +1,5 @@
-![Screenshot 2025-02-27 123148](https://github.com/user-attachments/assets/f467ade3-f684-417f-b266-00ae730d9558)
 
+![Screenshot 2025-02-27 124727](https://github.com/user-attachments/assets/59645b82-c779-4ac3-8ddb-cfc9c50e0299)
 # React Calculator with Tailwind CSS
 
 This is a simple calculator built using React and Tailwind CSS. It supports basic arithmetic operations like addition, subtraction, multiplication, and division.
