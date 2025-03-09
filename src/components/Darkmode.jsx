@@ -1,26 +1,39 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons'
+const DarkMode = () => {
+  const [isDark, setIsDark] = useState(
+    document.documentElement.classList.contains("dark"),
+  );
 
-const Darkmode = () => {
-  const darkmode=()=>{
-    if(document.documentElement.classList.includes('dark')){
-      document.documentElement.classList.remove('dark');
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
-    else{
-      document.documentElement.classList.add('dark');
-    };
-  }
+  }, [isDark]);
+
+  const toggleMode = () => {
+    setIsDark((prev) => !prev);
+  };
+
   return (
-    <div className=" w-full h-[10vh] bg-neutral-300 dark:bg-zinc-800">
-      <button onClick={darkmode} className='text-2xl border-2 rounded-full shadow-lg shadow-black dark:shadow-white dark:border-white  absolute right-20 top-8 h-10 w-40 flex justify-center items-center bg-black dark:bg-white hover:cursor-pointer active:scale-95 focus:outline-none'>
-        <span className='font-josefin text-white dark:text-black'>
-          Darkmode
-          &nbsp;
-        </span> 
-        <FontAwesomeIcon icon={ faCircleHalfStroke }  className="text-white dark:text-black" />    
+    <div className="bg-primary flex justify-end px-4 py-2">
+      <button
+        onClick={toggleMode}
+        className="text-2xl border-2 gap-0.5 py-0.5 px-2 rounded-full flex justify-center items-center bg-accent hover:cursor-pointer"
+      >
+        <div className="text-card-foreground">
+          {isDark ? "Dark Mode" : "Light Mode"}
+        </div>
+        <div>
+          <FontAwesomeIcon icon={faCircleHalfStroke} />
+        </div>
       </button>
     </div>
-)}
+  );
+};
 
-export default Darkmode
+export default DarkMode;
